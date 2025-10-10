@@ -44,7 +44,7 @@ $(document).ready(() => {
             hero.css({
               position: original.position,
               zIndex: original.zIndex,
-              marginLeft: originalMarginLeft,
+              marginLeft: original.marginLeft,
             });
           }
         );

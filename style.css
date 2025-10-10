@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f9f6;
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  margin-left: 220px;
+  padding: 40px;
+}
+
+/* Hero Section */
+.hero {
+  background: url("images/hero.png") center/cover no-repeat;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero button {
+  background-color: #fff;
+  color: #2c6e49;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Navigation Menu */
+#navigationMenu {
+  width: 200px;
+  background-color: #2c6e49;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+#navigationMenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#navigationMenu li {
+  margin: 15px 0;
+}
+
+#navigationMenu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Learn Cards */
+.learn-card {
+  display: inline-block;
+  width: 250px;
+  margin: 15px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.learn-card img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Kits */
+.kit-item {
+  display: inline-block;
+  position: relative;
+  margin: 15px;
+}
+
+.kit-item img {
+  width: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.kit-description {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* FAQ */
+.faq-item {
+  margin: 15px 0;
+}
+
+.answer {
+  display: none;
+  padding: 10px;
+  background: #e8f6ef;
+  border-left: 3px solid #2c6e49;
+}

@@ -3,6 +3,7 @@ $(document).ready(() => {
   // 1.Hero section animation
   const hero = $(".section.hero");
 
+  // Store original dimensions and position
   const original = {
     width: hero.width(),
     height: hero.height(),
@@ -13,44 +14,36 @@ $(document).ready(() => {
     marginLeft: hero.css("margin-left"),
   };
 
+  // Set to fixed position and full screen initially
   hero.css({
     position: "fixed",
-    top: original.top,
-    left: original.left,
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
     marginLeft: 0,
     zIndex: 1000,
   });
 
   // Animate to full screen for 3 seconds, then back to original size and position
-  hero.animate(
-    {
-      top: 0,
-      left: 0,
-      width: "100vw",
-      height: "100vh",
-    },
-    0,
-    () => {
-      setTimeout(() => {
-        hero.animate(
-          {
-            // top: original.top,
-            left: original.left,
-            width: original.width,
-            height: original.height,
-          },
-          1000,
-          () => {
-            hero.css({
-              position: original.position,
-              zIndex: original.zIndex,
-              marginLeft: original.marginLeft,
-            });
-          }
-        );
-      }, 3000);
-    }
-  );
+  setTimeout(() => {
+    hero.animate(
+      {
+        // top: original.top,
+        left: original.left,
+        width: original.width,
+        height: original.height,
+      },
+      1000,
+      () => {
+        hero.css({
+          position: original.position,
+          zIndex: original.zIndex,
+          marginLeft: original.marginLeft,
+        });
+      }
+    );
+  }, 3000);
 
   // 2.Navigation menu
   $("#navigationMenu h2").click((evt) => {

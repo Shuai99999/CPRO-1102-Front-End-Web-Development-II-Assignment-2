@@ -80,15 +80,15 @@ $(document).ready(() => {
   // Initialize first card
   cards.eq(index).addClass("active").css({ opacity: 1 });
 
-  // Function to show the next card with fade effect
+  // Custom Animations: Function to show the next card with fade effect
   function showNextCard() {
     const current = cards.eq(index);
     index = (index + 1) % cards.length;
     const next = cards.eq(index);
 
-    current.fadeOut(600, function () {
+    current.animate({ opacity: 0 }, 600, function () {
       current.removeClass("active");
-      next.fadeIn(600).addClass("active");
+      next.addClass("active").animate({ opacity: 1 }, 600);
     });
   }
 

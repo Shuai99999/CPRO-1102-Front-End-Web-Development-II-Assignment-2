@@ -72,6 +72,38 @@ $(document).ready(() => {
 
   $("#navigationMenu a, #startButton").click(smoothScroll);
 
+  // 3.Learn Section
+  const cards = $(".learn-card");
+  let index = 0;
+  let interval;
+
+  // Initialize first card
+  cards.eq(index).addClass("active").css({ opacity: 1 });
+
+  // Custom Animations: Function to show the next card with fade effect
+  function showNextCard() {
+    const current = cards.eq(index);
+    index = (index + 1) % cards.length;
+    const next = cards.eq(index);
+
+    current.animate({ opacity: 0 }, 600, function () {
+      current.removeClass("active");
+      next.addClass("active").animate({ opacity: 1 }, 600);
+    });
+  }
+
+  function startCarousel() {
+    interval = setInterval(showNextCard, 3000);
+  }
+
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  $(".learn-carousel").hover(stopCarousel, startCarousel);
+
+  startCarousel();
+
   // 4.Product Gallery
   // Click effect for product images
   function toggleGallery(evt) {

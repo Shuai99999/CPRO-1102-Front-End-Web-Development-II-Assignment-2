@@ -168,3 +168,30 @@ body {
   background: #e8f6ef;
   border-left: 3px solid #2c6e49;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #navigationMenu {
+    display: none;
+  }
+
+  .section {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .learn-carousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .kit-item {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .hero {
+    height: 300px;
+  }
+}

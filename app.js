@@ -25,11 +25,10 @@ $(document).ready(() => {
     zIndex: 1000,
   });
 
-  // Animate to full screen for 3 seconds, then back to original size and position
-  setTimeout(() => {
+  // Custom Animations: Animate to full screen for 3 seconds, then back to original size and position
+  function resetHero() {
     hero.animate(
       {
-        // top: original.top,
         left: original.left,
         width: original.width,
         height: original.height,
@@ -43,66 +42,69 @@ $(document).ready(() => {
         });
       }
     );
-  }, 3000);
+  }
+
+  setTimeout(resetHero, 3000);
 
   // 2.Navigation menu
-  $("#navigationMenu h2").click((evt) => {
+  function toggleMenu(evt) {
     const h2 = evt.currentTarget;
 
     $(h2).toggleClass("minus");
 
-    if ($(h2).attr("class") !== "minus") {
+    if (!$(h2).hasClass("minus")) {
       $(h2).next().stop(true, true).slideUp(1000, "easeInBounce");
     } else {
       $(h2).next().stop(true, true).slideDown(1000, "easeOutBounce");
     }
+  }
 
-    evt.preventDefault();
-  });
+  $("#navigationMenu h2").click(toggleMenu);
 
-  // 3.Smooth scrolling
-  $("#navigationMenu a").click((evt) => {
+  function smoothScroll(evt) {
     evt.preventDefault();
-    const target = $(evt.currentTarget).attr("href");
+    const target =
+      $(evt.currentTarget).attr("href") || $(evt.currentTarget).data("target");
     const position = $(target).offset().top;
 
     $("html, body").animate({ scrollTop: position }, 800, "swing");
-  });
+  }
 
-  // 4.Product section
+  $("#navigationMenu a, #startButton").click(smoothScroll);
+
+  // 4.Product Gallery
   // Click effect for product images
-  $(".kit-item").click((evt) => {
+  function toggleGallery(evt) {
     $(evt.currentTarget).find("img").fadeToggle(500);
-  });
+  }
+
+  $(".kit-item").click(toggleGallery);
 
   // Hover effect for product descriptions
-  $(".kit-item").hover(
-    (evt) => {
-      $(evt.currentTarget)
-        .find(".kit-description")
-        .stop(true, true)
-        .fadeIn(400);
-    },
-    (evt) => {
-      $(evt.currentTarget)
-        .find(".kit-description")
-        .stop(true, true)
-        .fadeOut(400);
-    }
-  );
+  function showDescription(evt) {
+    $(evt.currentTarget).find(".kit-description").stop(true, true).fadeIn(400);
+  }
+
+  function hideDescription(evt) {
+    $(evt.currentTarget).find(".kit-description").stop(true, true).fadeOut(400);
+  }
+
+  $(".kit-item").hover(showDescription, hideDescription);
 
   // 5.FAQ section
-  $("#faqs h3").click((evt) => {
+  function toggleFaq(evt) {
     const h3 = evt.currentTarget;
 
     $(h3).toggleClass("minus");
 
-    if ($(h3).attr("class") != "minus") {
+    if (!$(h3).hasClass("minus")) {
       $(h3).next().stop(true, true).slideUp(1000, "easeInBounce");
     } else {
       $(h3).next().stop(true, true).slideDown(1000, "easeOutBounce");
     }
 
     evt.preventDefault();
-  });
+  }
+
+  $("#faqs h3").click(toggleFaq);
 });

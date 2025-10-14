@@ -182,9 +182,12 @@ body {
 
   .learn-carousel {
     width: 100%;
-    height: auto;
+    height: 400px;
   }
 
+  .learn-card {
+    height: 100%;
+  }
   .kit-item {
     width: 100%;
     height: auto;
@@ -192,6 +195,6 @@ body {
   }
 
   .hero {
-    height: 300px;
+    height: 320px;
   }
 }

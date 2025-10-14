@@ -79,11 +79,16 @@ body {
 .kit-item {
   display: inline-block;
   position: relative;
-  margin: 15px;
+  width: 400px;
+  height: 270px;
+  background: #f3f9f6;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 100px;
 }
 
 .kit-item img {
-  width: 200px;
+  width: 400px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -99,6 +104,17 @@ body {
   padding: 5px;
   text-align: center;
   border-radius: 8px;
+}
+
+.product-intro {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #222;
+  letter-spacing: 0.3px;
+  line-height: 1.7;
+  font-style: italic;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  transition: color 0.3s ease;
 }
 
 /* FAQ */

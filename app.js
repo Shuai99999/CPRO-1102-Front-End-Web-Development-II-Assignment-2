@@ -63,11 +63,19 @@ $(document).ready(() => {
 
   function smoothScroll(evt) {
     evt.preventDefault();
+
     const target =
       $(evt.currentTarget).attr("href") || $(evt.currentTarget).data("target");
-    const position = $(target).offset().top;
 
-    $("html, body").animate({ scrollTop: position }, 800, "swing");
+    // Ignore if target is empty or just a hash
+    if (!target || target === "#") return;
+
+    const $targetElem = $(target);
+
+    if ($targetElem.length) {
+      const position = $targetElem.offset().top;
+      $("html, body").animate({ scrollTop: position }, 800, "swing");
+    }
   }
 
   $("#navigationMenu a, #startButton").click(smoothScroll);
